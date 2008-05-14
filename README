@@ -1,8 +1,7 @@
 Cj4r
 ====
 
-Introduction goes here.
-
+Ruby wrapper for Commission Junction's Web Services SOAP API
 
 Example
 =======
@@ -10,4 +9,4 @@ Example
 Example goes here.
 
 
-Copyright (c) 2008 [name of plugin creator], released under the MIT license
+Copyright (c) 2008 Jose R. Fernandez, released under the MIT license

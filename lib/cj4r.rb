@@ -1,13 +1,22 @@
 require 'rubygems'
 gem 'soap4r'
+require 'services/publisher_commission_service'
 
 module Cj4r
   
-  def self.included(base)
-    include ClassMethods
+  class ConfigFileNotFoundError < StandardError; end
+  class DeveloperKeyError < StandardError; end
+  
+  def self.included(base)    
     mattr_reader :developer_key
     
-    @@developer_key = 
+    begin
+      config_path = RAILS_ROOT + "/config/cj_key.yml"
+      @@developer_key = File.open(File.expand_path(config_path)) { |f| f.read }.chomp
+      raise DeveloperKeyError.new("Developer key is empty: %s" % config_path) if @@developer_key.blank? 
+    rescue Errno::ENOENT
+      raise ConfigFileNotFoundError.new("Config file not found: %s" % config_path )
+    end
   end
   
 end
