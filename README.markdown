@@ -17,7 +17,7 @@ Rails plugin for Commission Junction's Web Services SOAP API.
 
 ## Installation ##
 
-* From your Rails root run: 1.
+* From your Rails root run:
 
 <pre>
 	./script/plugin install git://github.com/jfernandez/cj4r.git
@@ -29,7 +29,7 @@ Rails plugin for Commission Junction's Web Services SOAP API.
 	config/cj_key.yml
 </pre>
 
-* Include the Cj4r gem in any of your Rails controllers, or just once in the Application controller
+* Include the Cj4r plugin in any of your Rails controllers, or just once in the Application controller
 
 <pre>
 	class ApplicationController < ActionController::Base
@@ -56,6 +56,6 @@ Rails plugin for Commission Junction's Web Services SOAP API.
 
 
 ---
-Copyright (c) 2008 HiveMagic, released under the MIT license<br/>
+Copyright (c) 2008 Jose Fernandez, released under the MIT license<br/>
 Written by Jose Fernandez, with support from iFundDrive.com
 
