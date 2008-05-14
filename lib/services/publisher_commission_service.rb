@@ -8,11 +8,23 @@ module Cj4r
       
       def find(*args)
         options = args.extract_options!
+        options[:date] = options[:date].nil? ? 1.day.ago.strftime("%m/%d/%Y") : options[:date].strftime("%m/%d/%Y")
+        options[:date_type] ||= 'event'
+        options[:advertiser_ids] ||= 'all'
+        options[:website_ids] ||= 'all'
+        options[:action_status] ||= 'all'
+        options[:action_types] ||= 'all'
+        options[:ad_ids] ||= 'all'
+        options[:countries] ||= 'all'
+        options[:correction_status] ||= 'all'
+        options[:sort] ||= 'sId'
+        options[:order] ||= 'asc'
         
         case args.first
           when :first then find_initial(options)
-          when :last then find_last(options)
-          when :all then find_every(options)
+          when :last  then find_last(options)
+          when :all   then find_every(options)
+          else             find_every(options)
         end
       end
       
@@ -29,16 +41,18 @@ module Cj4r
       def find_every(options)
         params = FindPublisherCommissions.new(
           Cj4r.developer_key, 
-          '01/19/2007', 
-          'event', "", 
-          "all", 
-          "all", 
-          "all", 
-          "", 
-          "", 
-          "", 
-          "commissionAmount", 
-          "desc")
+          options[:date],
+          options[:date_type],
+          options[:advertiser_ids],
+          options[:website_ids],
+          options[:action_status],
+          options[:action_types],
+          options[:ad_ids],
+          options[:countries],
+          options[:correction_status],
+          options[:sort],
+          options[:order])
+          
         service.findPublisherCommissions(params).out.publisherCommissions
       end
 
@@ -51,38 +65,3 @@ module Cj4r
   end
   
 end
-
-# #!/usr/bin/env ruby
-# require 'publisher_commissionDriver.rb'
-# 
-# endpoint_url = ARGV.shift
-# obj = PublisherCommissionServicePortType.new(endpoint_url)
-# 
-# # run ruby with -d to see SOAP wiredumps.
-# obj.wiredump_dev = STDERR if $DEBUG
-# 
-# # SYNOPSIS
-# #   findPublisherCommissions(parameters)
-# #
-# # ARGS
-# #   parameters      FindPublisherCommissions - {http://api.cj.com}findPublisherCommissions
-# #
-# # RETURNS
-# #   parameters      FindPublisherCommissionsResponse - {http://api.cj.com}findPublisherCommissionsResponse
-# #
-# parameters = nil
-# puts obj.findPublisherCommissions(parameters)
-# 
-# # SYNOPSIS
-# #   findPublisherCommissionDetails(parameters)
-# #
-# # ARGS
-# #   parameters      FindPublisherCommissionDetails - {http://api.cj.com}findPublisherCommissionDetails
-# #
-# # RETURNS
-# #   parameters      FindPublisherCommissionDetailsResponse - {http://api.cj.com}findPublisherCommissionDetailsResponse
-# #
-# parameters = nil
-# puts obj.findPublisherCommissionDetails(parameters)
-# 
-# 
