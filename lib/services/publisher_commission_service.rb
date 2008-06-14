@@ -1,11 +1,8 @@
 require 'services/wsdl/publisher_commission_driver'
 
 module Cj4r
-  
   class PublisherCommission
-    
     class << self # Class methods
-      
       def find(*args)
         options = args.extract_options!
         options[:date] = options[:date].nil? ? 1.day.ago.strftime("%m/%d/%Y") : options[:date].strftime("%m/%d/%Y")
@@ -59,9 +56,6 @@ module Cj4r
       def service
         PublisherCommissionServicePortType.new
       end
-      
     end
-    
   end
-  
 end
