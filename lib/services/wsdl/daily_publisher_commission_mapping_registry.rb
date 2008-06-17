@@ -1,4 +1,4 @@
-require 'services/wsdl/publisher_commission.rb'
+require 'services/wsdl/daily_publisher_commission.rb'
 require 'soap/mapping'
 
 module DefaultMappingRegistry

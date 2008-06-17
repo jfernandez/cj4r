@@ -1,9 +1,8 @@
 require 'rubygems'
 gem 'soap4r'
-require 'services/publisher_commission_service'
+require 'services/daily_publisher_commission_service'
 
-module Cj4r
-  
+module Cj4r  
   class ConfigFileNotFoundError < StandardError; end
   class DeveloperKeyError < StandardError; end
   
@@ -18,5 +17,4 @@ module Cj4r
       raise ConfigFileNotFoundError.new("Config file not found: %s" % config_path )
     end
   end
-  
 end

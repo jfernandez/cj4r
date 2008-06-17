@@ -1,7 +1,7 @@
-require 'services/wsdl/publisher_commission_driver'
+require 'services/wsdl/daily_publisher_commission_driver'
 
 module Cj4r
-  class PublisherCommission
+  class DailyPublisherCommission
     class << self # Class methods
       def find(*args)
         options = args.extract_options!
