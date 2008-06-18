@@ -1,6 +1,19 @@
 require 'rubygems'
 gem 'soap4r'
+require 'soap/rpc/driver'
+require 'soap/mapping'
+
+module DefaultMappingRegistry
+  EncodedRegistry = ::SOAP::Mapping::EncodedRegistry.new
+  LiteralRegistry = ::SOAP::Mapping::LiteralRegistry.new
+  NsApiCjCom = "http://api.cj.com"
+  NsTransactionLuceneServiceCjCom = "http://transaction.lucene.service.cj.com"
+  NsTransactionServiceCjCom = "http://transaction.service.cj.com"
+  NsTransactionDomainCjCom = "http://transaction.domain.cj.com"
+end
+
 require 'services/daily_publisher_commission_service'
+require 'services/real_time_commission_service'
 
 module Cj4r  
   class ConfigFileNotFoundError < StandardError; end

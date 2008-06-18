@@ -1,6 +1,5 @@
 require 'services/wsdl/real_time_commission.rb'
 require 'services/wsdl/real_time_commission_mapping_registry.rb'
-require 'soap/rpc/driver'
 
 class RealtimeCommissionServicePortType < ::SOAP::RPC::Driver
   DefaultEndpointUrl = "https://rtpubcommission.api.cj.com/services/realtimeCommissionService"

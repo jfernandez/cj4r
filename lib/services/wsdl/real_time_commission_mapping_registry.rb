@@ -1,12 +1,6 @@
 require 'services/wsdl/real_time_commission.rb'
-require 'soap/mapping'
 
 module DefaultMappingRegistry
-  EncodedRegistry = ::SOAP::Mapping::EncodedRegistry.new
-  LiteralRegistry = ::SOAP::Mapping::LiteralRegistry.new
-  NsApiCjCom = "http://api.cj.com"
-  NsTransactionLuceneServiceCjCom = "http://transaction.lucene.service.cj.com"
-  NsTransactionServiceCjCom = "http://transaction.service.cj.com"
 
   EncodedRegistry.register(
     :class => RealtimeCommissionResponse,

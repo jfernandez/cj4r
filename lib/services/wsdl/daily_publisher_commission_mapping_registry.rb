@@ -1,12 +1,6 @@
 require 'services/wsdl/daily_publisher_commission.rb'
-require 'soap/mapping'
 
 module DefaultMappingRegistry
-  EncodedRegistry = ::SOAP::Mapping::EncodedRegistry.new
-  LiteralRegistry = ::SOAP::Mapping::LiteralRegistry.new
-  NsApiCjCom = "http://api.cj.com"
-  NsTransactionDomainCjCom = "http://transaction.domain.cj.com"
-  NsTransactionServiceCjCom = "http://transaction.service.cj.com"
 
   EncodedRegistry.register(
     :class => PublisherCommissionResponse,

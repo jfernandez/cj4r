@@ -1,6 +1,5 @@
 require 'services/wsdl/daily_publisher_commission.rb'
 require 'services/wsdl/daily_publisher_commission_mapping_registry.rb'
-require 'soap/rpc/driver'
 
 class PublisherCommissionServicePortType < ::SOAP::RPC::Driver
   DefaultEndpointUrl = "https://pubcommission.api.cj.com/services/publisherCommissionService"

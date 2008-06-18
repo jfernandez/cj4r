@@ -14,8 +14,8 @@ module Cj4r
         options[:ad_ids] ||= 'all'
         options[:countries] ||= 'all'
         options[:correction_status] ||= 'all'
-        options[:sort] ||= 'sId'
-        options[:order] ||= 'asc'
+        options[:sort_by] ||= 'postingDate'
+        options[:sort_order] ||= 'asc'
         
         case args.first
           when :first then find_initial(options)
@@ -47,8 +47,8 @@ module Cj4r
           options[:ad_ids],
           options[:countries],
           options[:correction_status],
-          options[:sort],
-          options[:order])
+          options[:sort_by],
+          options[:sort_order])
           
         service.findPublisherCommissions(params).out.publisherCommissions
       end
