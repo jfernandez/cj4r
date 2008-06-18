@@ -3,19 +3,16 @@ require 'services/wsdl/real_time_commission_driver'
 module Cj4r
   class RealTimeCommission
     class << self # Class methods
-      def retrieve(*args)
+      def find(*args)
         options = args.extract_options!
-        options[:date] = options[:date].nil? ? 1.day.ago.strftime("%m/%d/%Y") : options[:date].strftime("%m/%d/%Y")
-        options[:date_type] ||= 'event'
-        options[:advertiser_ids] ||= 'all'
-        options[:website_ids] ||= 'all'
-        options[:action_status] ||= 'all'
-        options[:action_types] ||= 'all'
-        options[:ad_ids] ||= 'all'
-        options[:countries] ||= 'all'
-        options[:correction_status] ||= 'all'
-        options[:sort] ||= 'sId'
-        options[:order] ||= 'asc'
+        options[:website_ids] ||= ''
+        options[:look_back_x_hours] ||= 4
+        options[:advertiser_ids] ||= ''
+        options[:countries] ||= ''
+        options[:ad_ids] ||= ''
+        options[:include_details] ||= 'False'
+        options[:sort_by] ||= 'Date'
+        options[:sort_order] ||= 'desc'
         
         case args.first
           when :first then find_initial(options)
@@ -36,25 +33,22 @@ module Cj4r
       end
 
       def find_every(options)
-        params = FindPublisherCommissions.new(
+        params = RetrieveLatestTransactions.new(
           Cj4r.developer_key, 
-          options[:date],
-          options[:date_type],
-          options[:advertiser_ids],
           options[:website_ids],
-          options[:action_status],
-          options[:action_types],
-          options[:ad_ids],
+          options[:look_back_x_hours],
+          options[:advertiser_ids],
           options[:countries],
-          options[:correction_status],
-          options[:sort],
-          options[:order])
+          options[:ad_ids],
+          options[:include_details],
+          options[:sort_by],
+          options[:sort_order])
           
-        #service.findPublisherCommissions(params).out.publisherCommissions
+        service.retrieveLatestTransactions(params).out.transactions
       end
 
       def service
-        RealTimeCommissionServicePortType.new
+        RealtimeCommissionServicePortType.new
       end
     end
   end

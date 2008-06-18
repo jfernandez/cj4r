@@ -7,15 +7,15 @@ module Cj4r
         options = args.extract_options!
         options[:date] = options[:date].nil? ? 1.day.ago.strftime("%m/%d/%Y") : options[:date].strftime("%m/%d/%Y")
         options[:date_type] ||= 'event'
-        options[:advertiser_ids] ||= 'all'
-        options[:website_ids] ||= 'all'
-        options[:action_status] ||= 'all'
-        options[:action_types] ||= 'all'
-        options[:ad_ids] ||= 'all'
-        options[:countries] ||= 'all'
-        options[:correction_status] ||= 'all'
+        options[:advertiser_ids] ||= ''
+        options[:website_ids] ||= ''
+        options[:action_status] ||= ''
+        options[:action_types] ||= ''
+        options[:ad_ids] ||= ''
+        options[:countries] ||= ''
+        options[:correction_status] ||= ''
         options[:sort_by] ||= 'postingDate'
-        options[:sort_order] ||= 'asc'
+        options[:sort_order] ||= 'desc'
         
         case args.first
           when :first then find_initial(options)

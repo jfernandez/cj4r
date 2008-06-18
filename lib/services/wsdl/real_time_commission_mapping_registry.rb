@@ -1,7 +1,5 @@
-require 'services/wsdl/real_time_commission.rb'
-
 module DefaultMappingRegistry
-
+  
   EncodedRegistry.register(
     :class => RealtimeCommissionResponse,
     :schema_type => XSD::QName.new(NsTransactionServiceCjCom, "RealtimeCommissionResponse"),
