@@ -39,7 +39,7 @@ Rails plugin for Commission Junction's Web Services SOAP API.
 
 ## Examples ##
 
-* Return all transactions that occurred yesterday, sorted by sId in ascending order (defaults)
+* Return all transactions that occurred yesterday, sorted by postingDate in ascending order (defaults)
 
 <pre>
 	Cj4r::PublisherCommission.find(:all)
@@ -50,8 +50,8 @@ Rails plugin for Commission Junction's Web Services SOAP API.
 <pre>
 	Cj4r::PublisherCommission.find(:all, 
 		:date => Time.local(2008, 'jan', 19), 
-		:sort => 'commissionAmount', 
-		:order => 'desc')
+		:sort_by => 'commissionAmount', 
+		:sort_order => 'desc')
 </pre>
 
 
