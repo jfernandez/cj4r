@@ -5,7 +5,8 @@ module Cj4r
     class << self # Class methods
       def find(*args)
         options = args.extract_options!
-        options[:date] = options[:date].nil? ? 1.day.ago.strftime("%m/%d/%Y") : options[:date].strftime("%m/%d/%Y")
+        options[:developer_key]     ||= Cj4r.config[:developer_key]
+        options[:date]                = options[:date].nil? ? 1.day.ago.strftime("%m/%d/%Y") : options[:date].strftime("%m/%d/%Y")
         options[:date_type]         ||= 'event'
         options[:advertiser_ids]    ||= ''
         options[:website_ids]       ||= ''
@@ -37,7 +38,7 @@ module Cj4r
 
       def find_every(options)
         params = FindPublisherCommissions.new(
-          Cj4r.developer_key, 
+          options[:developer_key],
           options[:date],
           options[:date_type],
           options[:advertiser_ids],

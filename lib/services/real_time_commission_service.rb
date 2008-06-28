@@ -5,6 +5,7 @@ module Cj4r
     class << self # Class methods
       def find(*args)
         options = args.extract_options!
+        options[:developer_key]     ||= Cj4r.config[:developer_key]
         options[:website_ids]       ||= ''
         options[:look_back_x_hours] ||= 4
         options[:advertiser_ids]    ||= ''
@@ -34,7 +35,7 @@ module Cj4r
 
       def find_every(options)
         params = RetrieveLatestTransactions.new(
-          Cj4r.developer_key, 
+          options[:developer_key], 
           options[:website_ids],
           options[:look_back_x_hours],
           options[:advertiser_ids],

@@ -20,17 +20,15 @@ require 'services/product_catalog_search_service'
 
 module Cj4r  
   class ConfigFileNotFoundError < StandardError; end
-  class DeveloperKeyError < StandardError; end
   
   def self.included(base)    
-    mattr_reader :developer_key
+    mattr_reader :config
     
     begin
-      config_path = RAILS_ROOT + "/config/cj_key.yml"
-      @@developer_key = File.open(File.expand_path(config_path)) { |f| f.read }.chomp
-      raise DeveloperKeyError.new("Developer key is empty: %s" % config_path) if @@developer_key.blank? 
+      config_path = RAILS_ROOT + "/config/cj.yml"
+      @@config = YAML.load(ERB.new(File.read(config_path)).result).symbolize_keys
     rescue Errno::ENOENT
-      raise ConfigFileNotFoundError.new("Config file not found: %s" % config_path )
+      raise ConfigFileNotFoundError.new("Cj4r config file not found: %s" % config_path )
     end
   end
 end

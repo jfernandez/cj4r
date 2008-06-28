@@ -5,7 +5,8 @@ module Cj4r
     class << self # Class methods
       def find(*args)
         options = args.extract_options!
-        options[:website_id]        ||= ''
+        options[:developer_key]     ||= Cj4r.config[:developer_key]
+        options[:website_id]        ||= Cj4r.config[:website_id]
         options[:advertiser_ids]    ||= ''
         options[:keywords]          ||= ''
         options[:serviceable_area]  ||= ''
@@ -44,7 +45,7 @@ module Cj4r
 
       def find_every(options)
         params = Search.new(
-          Cj4r.developer_key, 
+          options[:developer_key], 
           options[:website_id],
           options[:advertiser_ids],
           options[:keywords],
