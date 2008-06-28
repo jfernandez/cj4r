@@ -8,6 +8,8 @@ Rails plugin for Commission Junction's Web Services SOAP API.
 
 * Item-based Details Report Service
 
+* Product Catalog Search Service
+
 ## Dependencies ##
 
 * Ruby on Rails 2.1 +
