@@ -5,14 +5,14 @@ module Cj4r
     class << self # Class methods
       def find(*args)
         options = args.extract_options!
-        options[:website_ids] ||= ''
+        options[:website_ids]       ||= ''
         options[:look_back_x_hours] ||= 4
-        options[:advertiser_ids] ||= ''
-        options[:countries] ||= ''
-        options[:ad_ids] ||= ''
-        options[:include_details] ||= 'False'
-        options[:sort_by] ||= 'Date'
-        options[:sort_order] ||= 'desc'
+        options[:advertiser_ids]    ||= ''
+        options[:countries]         ||= ''
+        options[:ad_ids]            ||= ''
+        options[:include_details]   ||= 'False'
+        options[:sort_by]           ||= 'Date'
+        options[:sort_order]        ||= 'desc'
         
         case args.first
           when :first then find_initial(options)
@@ -48,7 +48,7 @@ module Cj4r
       end
 
       def service
-        RealtimeCommissionServicePortType.new
+        @service ||= RealtimeCommissionServicePortType.new
       end
     end
   end

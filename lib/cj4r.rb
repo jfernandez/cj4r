@@ -10,10 +10,13 @@ module DefaultMappingRegistry
   NsTransactionLuceneServiceCjCom = "http://transaction.lucene.service.cj.com"
   NsTransactionServiceCjCom = "http://transaction.service.cj.com"
   NsTransactionDomainCjCom = "http://transaction.domain.cj.com"
+  NsProductDomainCjCom = "http://product.domain.cj.com"
+  NsProductServiceCjCom = "http://product.service.cj.com"
 end
 
 require 'services/daily_publisher_commission_service'
 require 'services/real_time_commission_service'
+require 'services/product_catalog_search_service'
 
 module Cj4r  
   class ConfigFileNotFoundError < StandardError; end
