@@ -70,7 +70,7 @@ end
 
 ## Caveats ##
 
-Some minor things in the API documentation at the [Commission Junction Web Services Help site] seem to be outdated.  I found the following documentation errors while creating this plugin:
+Some minor things in the API documentation at the [Commission Junction Web Services Help site](http://help.cj.com/en/web_services/web_services.htm) seem to be outdated.  I found the following documentation errors while creating this plugin:
 
 * The Advertiser Search and Link Search services have a `language` parameter which is not included in the documentation.  This parameter just takes a regular string to filter the results by a language.
 
