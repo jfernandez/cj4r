@@ -14,12 +14,14 @@ module DefaultMappingRegistry
   NsProductServiceCjCom = "http://product.service.cj.com"
   NsAdvertiserServiceCjCom = "http://advertiser.service.cj.com"
   NsVoDomainCjCom = "http://vo.domain.cj.com"
+  NsLinkServiceCjCom = "http://link.service.cj.com"
 end
 
 require 'cj4r/daily_publisher_commission_service'
 require 'cj4r/real_time_commission_service'
 require 'cj4r/product_catalog_search_service'
 require 'cj4r/advertiser_search_service'
+require 'cj4r/link_search_service'
 
 module Cj4r  
   class ConfigFileNotFoundError < StandardError; end

@@ -12,6 +12,8 @@ Rails plugin for Commission Junction's Web Services SOAP API.
 
 * Advertiser Search Service (v.2)
 
+* Link Search Service (v.2)
+
 ## Dependencies ##
 
 * Ruby on Rails 2.1.0
@@ -51,6 +53,7 @@ The current Commission Junction service classes are:
 * Cj4r::RealTimeCommission
 * Cj4r::ProductCatalogSearch
 * Cj4r::AdvertiserSearch
+* Cj4r::LinkSearch
 
 Each service class has a `find` method that closely emulates ActiveRecord::Base#find and returns an array containing the web service results.  Each of these records are their own class and have the same attribute names (also camelCased) listed in the 'Per Record' part of each of their [Web Service documentation](http://help.cj.com/en/web_services/web_services.htm).
 
@@ -64,6 +67,14 @@ Each service class has a `find` method that closely emulates ActiveRecord::Base#
   # => 'bar'
 end
 </pre>
+
+## Caveats ##
+
+Some minor things in the API documentation at the [Commission Junction Web Services Help site] seem to be outdated.  I found the following documentation errors while creating this plugin:
+
+* The Advertiser Search and Link Search services have a `language` parameter which is not included in the documentation.  This parameter just takes a regular string to filter the results by a language.
+
+* The correct string value for all API's to order results in descending order (sortOrder paramater, sort_order in Cj4r) is `desc`, *not* `dec` as indicated by the documentation.
 
 ## Examples ##
 
