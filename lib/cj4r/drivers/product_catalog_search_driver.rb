@@ -1,5 +1,5 @@
-require 'services/wsdl/product_catalog_search.rb'
-require 'services/wsdl/product_catalog_search_mapping_registry.rb'
+require 'cj4r/drivers/product_catalog_search.rb'
+require 'cj4r/drivers/product_catalog_search_mapping_registry.rb'
 
 class ProductSearchServiceV2PortType < ::SOAP::RPC::Driver
   DefaultEndpointUrl = "https://product.api.cj.com/services/productSearchServiceV2"

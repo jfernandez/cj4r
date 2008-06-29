@@ -10,6 +10,8 @@ Rails plugin for Commission Junction's Web Services SOAP API.
 
 * Product Catalog Search Service (v.2)
 
+* Advertiser Search Service (v.2)
+
 ## Dependencies ##
 
 * Ruby on Rails 2.1.0
@@ -48,6 +50,7 @@ The current Commission Junction service classes are:
 * Cj4r::DailyPublisherCommission
 * Cj4r::RealTimeCommission
 * Cj4r::ProductCatalogSearch
+* Cj4r::AdvertiserSearch
 
 Each service class has a `find` method that closely emulates ActiveRecord::Base#find and returns an array containing the web service results.  Each of these records are their own class and have the same attribute names (also camelCased) listed in the 'Per Record' part of each of their [Web Service documentation](http://help.cj.com/en/web_services/web_services.htm).
 

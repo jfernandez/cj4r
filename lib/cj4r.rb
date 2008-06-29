@@ -12,11 +12,14 @@ module DefaultMappingRegistry
   NsTransactionDomainCjCom = "http://transaction.domain.cj.com"
   NsProductDomainCjCom = "http://product.domain.cj.com"
   NsProductServiceCjCom = "http://product.service.cj.com"
+  NsAdvertiserServiceCjCom = "http://advertiser.service.cj.com"
+  NsVoDomainCjCom = "http://vo.domain.cj.com"
 end
 
-require 'services/daily_publisher_commission_service'
-require 'services/real_time_commission_service'
-require 'services/product_catalog_search_service'
+require 'cj4r/daily_publisher_commission_service'
+require 'cj4r/real_time_commission_service'
+require 'cj4r/product_catalog_search_service'
+require 'cj4r/advertiser_search_service'
 
 module Cj4r  
   class ConfigFileNotFoundError < StandardError; end

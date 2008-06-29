@@ -1,4 +1,4 @@
-require 'services/wsdl/daily_publisher_commission_driver'
+require 'cj4r/drivers/daily_publisher_commission_driver'
 
 module Cj4r
   class DailyPublisherCommission

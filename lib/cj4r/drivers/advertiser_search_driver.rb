@@ -1,22 +1,14 @@
-require 'services/wsdl/daily_publisher_commission.rb'
-require 'services/wsdl/daily_publisher_commission_mapping_registry.rb'
+require 'cj4r/drivers/advertiser_search.rb'
+require 'cj4r/drivers/advertiser_search_mapping_registry.rb'
 
-class PublisherCommissionServicePortType < ::SOAP::RPC::Driver
-  DefaultEndpointUrl = "https://pubcommission.api.cj.com/services/publisherCommissionService"
+class AdvertiserSearchServiceV2PortType < ::SOAP::RPC::Driver
+  DefaultEndpointUrl = "https://linksearch.api.cj.com/services/advertiserSearchServiceV2"
 
   Methods = [
     [ "",
-      "findPublisherCommissions",
-      [ ["in", "parameters", ["::SOAP::SOAPElement", "http://api.cj.com", "findPublisherCommissions"]],
-        ["out", "parameters", ["::SOAP::SOAPElement", "http://api.cj.com", "findPublisherCommissionsResponse"]] ],
-      { :request_style =>  :document, :request_use =>  :literal,
-        :response_style => :document, :response_use => :literal,
-        :faults => {} }
-    ],
-    [ "",
-      "findPublisherCommissionDetails",
-      [ ["in", "parameters", ["::SOAP::SOAPElement", "http://api.cj.com", "findPublisherCommissionDetails"]],
-        ["out", "parameters", ["::SOAP::SOAPElement", "http://api.cj.com", "findPublisherCommissionDetailsResponse"]] ],
+      "search",
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "http://api.cj.com", "search"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "http://api.cj.com", "searchResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
         :faults => {} }
@@ -51,3 +43,4 @@ private
     end
   end
 end
+

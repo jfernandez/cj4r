@@ -1,4 +1,4 @@
-require 'services/wsdl/real_time_commission_driver'
+require 'cj4r/drivers/real_time_commission_driver'
 
 module Cj4r
   class RealTimeCommission

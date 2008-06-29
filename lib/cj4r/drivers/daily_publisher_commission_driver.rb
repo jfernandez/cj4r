@@ -1,14 +1,22 @@
-require 'services/wsdl/real_time_commission.rb'
-require 'services/wsdl/real_time_commission_mapping_registry.rb'
+require 'cj4r/drivers/daily_publisher_commission.rb'
+require 'cj4r/drivers/daily_publisher_commission_mapping_registry.rb'
 
-class RealtimeCommissionServicePortType < ::SOAP::RPC::Driver
-  DefaultEndpointUrl = "https://rtpubcommission.api.cj.com/services/realtimeCommissionService"
+class PublisherCommissionServicePortType < ::SOAP::RPC::Driver
+  DefaultEndpointUrl = "https://pubcommission.api.cj.com/services/publisherCommissionService"
 
   Methods = [
     [ "",
-      "retrieveLatestTransactions",
-      [ ["in", "parameters", ["::SOAP::SOAPElement", "http://api.cj.com", "retrieveLatestTransactions"]],
-        ["out", "parameters", ["::SOAP::SOAPElement", "http://api.cj.com", "retrieveLatestTransactionsResponse"]] ],
+      "findPublisherCommissions",
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "http://api.cj.com", "findPublisherCommissions"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "http://api.cj.com", "findPublisherCommissionsResponse"]] ],
+      { :request_style =>  :document, :request_use =>  :literal,
+        :response_style => :document, :response_use => :literal,
+        :faults => {} }
+    ],
+    [ "",
+      "findPublisherCommissionDetails",
+      [ ["in", "parameters", ["::SOAP::SOAPElement", "http://api.cj.com", "findPublisherCommissionDetails"]],
+        ["out", "parameters", ["::SOAP::SOAPElement", "http://api.cj.com", "findPublisherCommissionDetailsResponse"]] ],
       { :request_style =>  :document, :request_use =>  :literal,
         :response_style => :document, :response_use => :literal,
         :faults => {} }

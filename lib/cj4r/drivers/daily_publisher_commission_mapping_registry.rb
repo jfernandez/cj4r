@@ -1,4 +1,4 @@
-require 'services/wsdl/daily_publisher_commission.rb'
+require 'cj4r/drivers/daily_publisher_commission.rb'
 
 module DefaultMappingRegistry
 

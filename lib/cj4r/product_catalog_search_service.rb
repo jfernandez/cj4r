@@ -1,4 +1,4 @@
-require 'services/wsdl/product_catalog_search_driver'
+require 'cj4r/drivers/product_catalog_search_driver'
 
 module Cj4r
   class ProductCatalogSearch

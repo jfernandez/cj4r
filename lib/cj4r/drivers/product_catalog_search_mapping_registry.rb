@@ -1,4 +1,4 @@
-require 'services/wsdl/product_catalog_search.rb'
+require 'cj4r/drivers/product_catalog_search.rb'
 
 module DefaultMappingRegistry
 
