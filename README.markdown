@@ -49,7 +49,7 @@ The current Commission Junction service classes are:
 * Cj4r::RealTimeCommission
 * Cj4r::ProductCatalogSearch
 
-Each service class has a `find` method that closely emulates ActiveRecord::Base#find
+Each service class has a `find` method that closely emulates ActiveRecord::Base#find and returns an array containing the web service results.  Each of these records have the same attribute names (also camelCased) listed in the 'Per Record' part of each of their [Web Service documentation](http://help.cj.com/en/web_services/web_services.htm).
 
 ## Examples ##
 
