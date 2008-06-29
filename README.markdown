@@ -45,11 +45,21 @@ All Cj4r Service finders take the same parameters listed in the official [Commis
 
 The current Commission Junction service classes are:
 
-* Cj4r::DailyPublisherCommision
+* Cj4r::DailyPublisherCommission
 * Cj4r::RealTimeCommission
 * Cj4r::ProductCatalogSearch
 
-Each service class has a `find` method that closely emulates ActiveRecord::Base#find and returns an array containing the web service results.  Each of these records have the same attribute names (also camelCased) listed in the 'Per Record' part of each of their [Web Service documentation](http://help.cj.com/en/web_services/web_services.htm).
+Each service class has a `find` method that closely emulates ActiveRecord::Base#find and returns an array containing the web service results.  Each of these records are their own class and have the same attribute names (also camelCased) listed in the 'Per Record' part of each of their [Web Service documentation](http://help.cj.com/en/web_services/web_services.htm).
+
+<pre>
+	@records = DailyPublisherCommission(:all, :date => Time.local(2008, 'jan', 19))
+	@records.each do |record|
+	  @record.attributeName1
+		# => 'foo'
+		@record.attributeName2
+		# => 'bar'
+	end
+</pre>
 
 ## Examples ##
 
