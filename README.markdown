@@ -49,6 +49,8 @@ The current Commission Junction service classes are:
 * Cj4r::RealTimeCommission
 * Cj4r::ProductCatalogSearch
 
+Each service class has a `find` method that closely emulates ActiveRecord::Base#find
+
 ## Examples ##
 
 * Return all transactions that occurred yesterday, sorted by postingDate in descending order (defaults)
@@ -60,10 +62,10 @@ Cj4r::PublisherCommission.find(:all)
 * Return all transactions for the event date of January 19, 2007 sorted by commission amount in ascending order
 
 <pre>
-Cj4r::PublisherCommission.find(:all, 
-  :date => Time.local(2008, 'jan', 19), 
-	:sort_by => 'commissionAmount', 
-	:sort_order => 'asc')
+Cj4r::PublisherCommission.find(:all,
+  :date => Time.local(2008, 'jan', 19),
+  :sort_by => 'commissionAmount',
+  :sort_order => 'asc')
 </pre>
 
 
