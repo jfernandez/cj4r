@@ -31,10 +31,11 @@ Rails plugin for Commission Junction's Web Services SOAP API.
 ./script/plugin install git://github.com/jfernandez/cj4r.git
 </pre>
   
-* Enter your Commission Junction developer key and website ID (optional) in the config yaml
+* Enter your Commission Junction developer key and website ID (optional) in the cj4r config file: `cj.yml`
 
 <pre>
-config/cj.yml
+developer_key: 192839djs9kd393...
+website_id: 123456
 </pre>
 
 * Include the Cj4r plugin in any of your Rails controllers, or just once in the Application controller
