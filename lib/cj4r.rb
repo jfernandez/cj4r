@@ -22,6 +22,7 @@ require 'cj4r/real_time_commission_service'
 require 'cj4r/product_catalog_search_service'
 require 'cj4r/advertiser_search_service'
 require 'cj4r/link_search_service'
+require 'cj4r/support_service'
 
 module Cj4r  
   class ConfigFileNotFoundError < StandardError; end

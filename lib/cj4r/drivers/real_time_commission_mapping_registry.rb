@@ -1,3 +1,5 @@
+require 'cj4r/drivers/real_time_commission.rb'
+
 module DefaultMappingRegistry
   
   EncodedRegistry.register(

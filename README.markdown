@@ -14,6 +14,8 @@ Rails plugin for Commission Junction's Web Services SOAP API.
 
 * Link Search Service (v.2)
 
+* Support Service (v.2)
+
 ## Dependencies ##
 
 * Ruby on Rails 2.1.0
@@ -57,6 +59,13 @@ The current Commission Junction service classes are:
 
 Each service class has a `find` method that closely emulates ActiveRecord::Base#find and returns an array containing the web service results.  Each of these records are their own class and have the same attribute names (also camelCased) listed in the 'Per Record' part of each of their [Web Service documentation](http://help.cj.com/en/web_services/web_services.htm).
 
+To get an array of all possible string values for the `language`, `country`, `linkSize`, and `linkType` parameters found in some of the services, Commission Junction provides a Support API, accessible in Cj4r using the Cj4r::Support service class, using the following methods:
+
+* Cj4r::Support.languages(:locale => 'en') _Locale is an optional parameter, set to english by default_
+* Cj4r::Support.countries(:locale => 'en') _Locale is an optional parameter, set to english by default_
+* Cj4r::Support.link_types
+* Cj4r::Support.link_sizes
+
 <pre>
 @records = DailyPublisherCommission(:all, :date => Time.local(2008, 'jan', 19))
 
@@ -67,6 +76,8 @@ Each service class has a `find` method that closely emulates ActiveRecord::Base#
   # => 'bar'
 end
 </pre>
+
+
 
 ## Caveats ##
 
