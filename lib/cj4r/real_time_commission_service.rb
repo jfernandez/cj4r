@@ -45,7 +45,8 @@ module Cj4r
           options[:sort_by],
           options[:sort_order])
           
-        service.retrieveLatestTransactions(params).out.transactions
+        results = service.retrieveLatestTransactions(params).out.transactions
+        results = [results] unless results.is_a?(Array)
       end
 
       def service

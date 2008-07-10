@@ -61,7 +61,8 @@ module Cj4r
           options[:start_at],
           options[:max_results])
           
-        service.searchLinks(params).out.links
+        results = service.searchLinks(params).out.links
+        results = [results] unless results.is_a?(Array)
       end
 
       def service

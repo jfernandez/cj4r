@@ -51,7 +51,8 @@ module Cj4r
           options[:start_at],
           options[:max_results])
           
-        service.search(params).out.advertisers
+        results = service.search(params).out.advertisers
+        results = [results] unless results.is_a?(Array)
       end
 
       def service
