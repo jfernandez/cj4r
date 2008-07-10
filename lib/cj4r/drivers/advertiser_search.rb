@@ -86,7 +86,7 @@ end
 #   sortOrder - SOAP::SOAPString
 #   startAt - SOAP::SOAPInt
 #   maxResults - SOAP::SOAPInt
-class Search
+class AdvertiserSearchParams
   attr_accessor :developerKey
   attr_accessor :token
   attr_accessor :keywords

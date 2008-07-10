@@ -104,7 +104,7 @@ end
 #   sortOrder - SOAP::SOAPString
 #   startAt - SOAP::SOAPString
 #   maxResults - SOAP::SOAPString
-class Search
+class ProductSearchParams
   attr_accessor :developerKey
   attr_accessor :websiteId
   attr_accessor :advertiserIds
