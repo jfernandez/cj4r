@@ -44,7 +44,7 @@ module Cj4r
       end
 
       def find_every(options)
-        params = ProductSearchParams.new(
+        params = Search.new(
           options[:developer_key], 
           options[:website_id],
           options[:advertiser_ids],
@@ -65,8 +65,7 @@ module Cj4r
           options[:start_at],
           options[:max_results])
           
-        results = service.search(params).out.products
-        results = [results] unless results.is_a?(Array)
+        service.search(params).out.products
       end
 
       def service

@@ -91,7 +91,7 @@ module DefaultMappingRegistry
   )
 
   LiteralRegistry.register(
-    :class => ProductSearchParams,
+    :class => Search,
     :schema_name => XSD::QName.new(NsApiCjCom, "search"),
     :schema_element => [
       ["developerKey", "SOAP::SOAPString"],

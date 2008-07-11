@@ -51,8 +51,7 @@ module Cj4r
           options[:sort_by],
           options[:sort_order])
           
-        results = service.findPublisherCommissions(params).out.publisherCommissions
-        results = [results] unless results.is_a?(Array)
+        service.findPublisherCommissions(params).out.publisherCommissions
       end
 
       def service
