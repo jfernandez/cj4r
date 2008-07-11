@@ -44,7 +44,7 @@ module Cj4r
       end
 
       def find_every(options)
-        params = Search.new(
+        params = ProductSearchParams.new(
           options[:developer_key], 
           options[:website_id],
           options[:advertiser_ids],

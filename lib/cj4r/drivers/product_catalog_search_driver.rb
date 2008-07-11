@@ -18,8 +18,8 @@ class ProductSearchServiceV2PortType < ::SOAP::RPC::Driver
   def initialize(endpoint_url = nil)
     endpoint_url ||= DefaultEndpointUrl
     super(endpoint_url, nil)
-    self.mapping_registry = DefaultMappingRegistry::EncodedRegistry
-    self.literal_mapping_registry = DefaultMappingRegistry::LiteralRegistry
+    self.mapping_registry = DefaultMappingRegistry::ProductEncodedRegistry
+    self.literal_mapping_registry = DefaultMappingRegistry::ProductLiteralRegistry
     init_methods
   end
 
@@ -43,4 +43,3 @@ private
     end
   end
 end
-

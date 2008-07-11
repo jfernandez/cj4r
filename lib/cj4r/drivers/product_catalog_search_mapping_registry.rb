@@ -1,8 +1,11 @@
 require 'cj4r/drivers/product_catalog_search.rb'
 
 module DefaultMappingRegistry
+  
+  ProductEncodedRegistry = ::SOAP::Mapping::EncodedRegistry.new
+  ProductLiteralRegistry = ::SOAP::Mapping::LiteralRegistry.new
 
-  EncodedRegistry.register(
+  ProductEncodedRegistry.register(
     :class => ProductResponse,
     :schema_type => XSD::QName.new(NsProductServiceCjCom, "ProductResponse"),
     :schema_element => [
@@ -13,7 +16,7 @@ module DefaultMappingRegistry
     ]
   )
 
-  EncodedRegistry.register(
+  ProductEncodedRegistry.register(
     :class => ArrayOfProduct,
     :schema_type => XSD::QName.new(NsProductDomainCjCom, "ArrayOfProduct"),
     :schema_element => [
@@ -21,7 +24,7 @@ module DefaultMappingRegistry
     ]
   )
 
-  EncodedRegistry.register(
+  ProductEncodedRegistry.register(
     :class => Product,
     :schema_type => XSD::QName.new(NsProductDomainCjCom, "Product"),
     :schema_element => [
@@ -46,7 +49,7 @@ module DefaultMappingRegistry
     ]
   )
 
-  LiteralRegistry.register(
+  ProductLiteralRegistry.register(
     :class => ProductResponse,
     :schema_type => XSD::QName.new(NsProductServiceCjCom, "ProductResponse"),
     :schema_element => [
@@ -57,7 +60,7 @@ module DefaultMappingRegistry
     ]
   )
 
-  LiteralRegistry.register(
+  ProductLiteralRegistry.register(
     :class => ArrayOfProduct,
     :schema_type => XSD::QName.new(NsProductDomainCjCom, "ArrayOfProduct"),
     :schema_element => [
@@ -65,7 +68,7 @@ module DefaultMappingRegistry
     ]
   )
 
-  LiteralRegistry.register(
+  ProductLiteralRegistry.register(
     :class => Product,
     :schema_type => XSD::QName.new(NsProductDomainCjCom, "Product"),
     :schema_element => [
@@ -90,8 +93,8 @@ module DefaultMappingRegistry
     ]
   )
 
-  LiteralRegistry.register(
-    :class => Search,
+  ProductLiteralRegistry.register(
+    :class => ProductSearchParams,
     :schema_name => XSD::QName.new(NsApiCjCom, "search"),
     :schema_element => [
       ["developerKey", "SOAP::SOAPString"],
@@ -116,7 +119,7 @@ module DefaultMappingRegistry
     ]
   )
 
-  LiteralRegistry.register(
+  ProductLiteralRegistry.register(
     :class => SearchResponse,
     :schema_name => XSD::QName.new(NsApiCjCom, "searchResponse"),
     :schema_element => [
